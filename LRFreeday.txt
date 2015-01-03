@@ -1,0 +1,22 @@
+"Updater"
+{
+	"Information"
+	{
+		"Version"
+		{
+			"Latest"	"1.0.0"
+		}
+		
+		"Notes"	"Changelog:"
+		"Notes"	"Initial release"
+	}
+	
+	"Files"
+	{
+		"Plugin"	"Path_SM/plugins/lastrequest_freeday.smx"
+		"Plugin"	"Path_SM/translations/freedaylr.phrases.txt"
+		"Plugin"	"Path_SM/translations/de/freedaylr.phrases.txt"
+		
+		"Source"	"Path_SM/scripting/lastrequest_freeday.sp"
+	}
+}
