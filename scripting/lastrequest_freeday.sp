@@ -48,6 +48,10 @@ public OnLibraryAdded(const String:name[])
         Updater_AddPlugin(UPDATE_URL)
     }
 }
+public OnPluginEnd()
+{
+	RemoveLastRequestFromList(Freeday_Start, Freeday_Stop, g_sLR_Name);
+}
 public APLRes:AskPluginLoad2(Handle:myself, bool:late, String:error[], err_max)
 {
    return APLRes_Success;
@@ -59,10 +63,11 @@ public Freeday_Start(Handle:LR_Array, iIndexInArray)
 	if (This_LR_Type == g_LREntryNum)
 	{		
 		new LR_Player_Prisoner = GetArrayCell(LR_Array, iIndexInArray, _:Block_Prisoner);
-		new LR_Player_Guard = GetArrayCell(LR_Array, iIndexInArray, _:Block_Guard);
 
 		StripAllWeapons(LR_Player_Prisoner);
-		CPrintToChatAll(CHAT_BANNER, "LRStart", LR_Player_Prisoner, LR_Player_Guard);
+		decl String:TargetName[MAX_NAME_LENGTH];
+		GetClientName(LR_Player_Prisoner, TargetName, sizeof(TargetName))
+		CPrintToChatAll(CHAT_BANNER, "LRStart", TargetName);
 		EmitSoundToAll("ambient/explosions/exp2.wav", LR_Player_Prisoner, _, _, _, 1.0);
 		SetFreeday(LR_Player_Prisoner, false);
 		CreateTimer(2.0, KillExplosion, LR_Player_Prisoner);	
