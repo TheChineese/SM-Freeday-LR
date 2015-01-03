@@ -54,7 +54,8 @@ public OnPluginEnd()
 }
 public APLRes:AskPluginLoad2(Handle:myself, bool:late, String:error[], err_max)
 {
-   return APLRes_Success;
+	MarkNativeAsOptional("Updater_AddPlugin");
+	return APLRes_Success;
 }
 
 public Freeday_Start(Handle:LR_Array, iIndexInArray)
