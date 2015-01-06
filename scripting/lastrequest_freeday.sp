@@ -14,7 +14,7 @@ public Plugin:myinfo =
 	name = "Last Request: Freeday",
 	author = "Toast",
 	description = "Last Request Feature Freeday",
-	version = "1.0.0",
+	version = "1.0.1",
 	url = "bitbucket.toastdev.de"
 }
 new g_LREntryNum;
@@ -70,7 +70,7 @@ public Freeday_Start(Handle:LR_Array, iIndexInArray)
 		GetClientName(LR_Player_Prisoner, TargetName, sizeof(TargetName))
 		CPrintToChatAll(CHAT_BANNER, "LRStart", TargetName);
 		EmitSoundToAll("ambient/explosions/exp2.wav", LR_Player_Prisoner, _, _, _, 1.0);
-		SetFreeday(LR_Player_Prisoner, false);
+		FREEDAY_SetFreeday(LR_Player_Prisoner, false);
 		CreateTimer(2.0, KillExplosion, LR_Player_Prisoner);	
 	}
 }
